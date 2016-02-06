@@ -13,6 +13,9 @@
 		F710E9361C66A23300B5294D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F710E9351C66A23300B5294D /* Assets.xcassets */; };
 		F710E9391C66A23300B5294D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F710E9371C66A23300B5294D /* LaunchScreen.storyboard */; };
 		F710E9411C66A84400B5294D /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710E9401C66A84400B5294D /* RootTabBarController.swift */; };
+		F7E34CA41C66AE4200EE7036 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */; };
+		F7E34CA51C66AE4200EE7036 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E34CA31C66AE4200EE7036 /* PlayersViewController.xib */; };
+		F7E34CA71C66AEDB00EE7036 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CA61C66AEDB00EE7036 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		F710E9381C66A23300B5294D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F710E93A1C66A23300B5294D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F710E9401C66A84400B5294D /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		F7E34CA31C66AE4200EE7036 /* PlayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersViewController.xib; sourceTree = "<group>"; };
+		F7E34CA61C66AEDB00EE7036 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				F710E9421C66A84800B5294D /* Controllers */,
+				F7E34CA61C66AEDB00EE7036 /* Constants.swift */,
 				F710E92B1C66A23300B5294D /* AppDelegate.swift */,
 				F710E92F1C66A23300B5294D /* Main.storyboard */,
 				F710E9351C66A23300B5294D /* Assets.xcassets */,
@@ -71,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				F710E9401C66A84400B5294D /* RootTabBarController.swift */,
+				F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */,
+				F7E34CA31C66AE4200EE7036 /* PlayersViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F710E9391C66A23300B5294D /* LaunchScreen.storyboard in Resources */,
+				F7E34CA51C66AE4200EE7036 /* PlayersViewController.xib in Resources */,
 				F710E9361C66A23300B5294D /* Assets.xcassets in Resources */,
 				F710E9311C66A23300B5294D /* Main.storyboard in Resources */,
 			);
@@ -147,7 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E34CA71C66AEDB00EE7036 /* Constants.swift in Sources */,
 				F710E9341C66A23300B5294D /* USWNT.xcdatamodeld in Sources */,
+				F7E34CA41C66AE4200EE7036 /* PlayersViewController.swift in Sources */,
 				F710E9411C66A84400B5294D /* RootTabBarController.swift in Sources */,
 				F710E92C1C66A23300B5294D /* AppDelegate.swift in Sources */,
 			);

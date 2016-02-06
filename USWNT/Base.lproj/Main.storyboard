@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="xQ5-KT-W5i"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="xQ5-KT-W5i" userLabel="Schedule"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3J-Vy-zcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253" y="694"/>
+            <point key="canvasLocation" x="1253" y="678"/>
         </scene>
         <!--Players-->
         <scene sceneID="oZr-AT-83U">
             <objects>
-                <viewController id="q3E-nf-VeG" userLabel="Players" sceneMemberID="viewController">
+                <viewController id="q3E-nf-VeG" userLabel="Players" customClass="PlayersViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RK1-F3-qDy"/>
                         <viewControllerLayoutGuide type="bottom" id="r6w-dE-cmN"/>
@@ -37,11 +37,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ppL-EY-Ezk"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="ppL-EY-Ezk" userLabel="Players"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isv-qN-dbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253" y="1354"/>
+            <point key="canvasLocation" x="1253" y="22"/>
         </scene>
         <!--Highlights & News-->
         <scene sceneID="JEg-NK-bFd">
@@ -56,7 +56,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="PmS-x1-rzP"/>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="PmS-x1-rzP" userLabel="Highlights"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIH-H5-Pj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,11 +75,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="u0u-hy-7US"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="u0u-hy-7US" userLabel="Results"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2d1-bk-6sa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1255" y="17"/>
+            <point key="canvasLocation" x="1253" y="1337"/>
         </scene>
         <!--Root Tab Bar Controller-->
         <scene sceneID="dea-2k-N66">

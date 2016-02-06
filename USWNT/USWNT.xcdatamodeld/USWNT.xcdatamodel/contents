@@ -2,7 +2,7 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
     <entity name="Player" syncable="YES">
         <attribute name="clubName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dateOfBirth" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="headshot" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="String" syncable="YES"/>
