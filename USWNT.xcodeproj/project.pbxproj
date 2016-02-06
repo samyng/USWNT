@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		F710E92C1C66A23300B5294D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710E92B1C66A23300B5294D /* AppDelegate.swift */; };
-		F710E92E1C66A23300B5294D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710E92D1C66A23300B5294D /* ViewController.swift */; };
 		F710E9311C66A23300B5294D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F710E92F1C66A23300B5294D /* Main.storyboard */; };
 		F710E9341C66A23300B5294D /* USWNT.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F710E9321C66A23300B5294D /* USWNT.xcdatamodeld */; };
 		F710E9361C66A23300B5294D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F710E9351C66A23300B5294D /* Assets.xcassets */; };
 		F710E9391C66A23300B5294D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F710E9371C66A23300B5294D /* LaunchScreen.storyboard */; };
+		F710E9411C66A84400B5294D /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710E9401C66A84400B5294D /* RootTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F710E9281C66A23300B5294D /* USWNT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = USWNT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F710E92B1C66A23300B5294D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F710E92D1C66A23300B5294D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F710E9301C66A23300B5294D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F710E9331C66A23300B5294D /* USWNT.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = USWNT.xcdatamodel; sourceTree = "<group>"; };
 		F710E9351C66A23300B5294D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F710E9381C66A23300B5294D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F710E93A1C66A23300B5294D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F710E9401C66A84400B5294D /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +56,8 @@
 		F710E92A1C66A23300B5294D /* USWNT */ = {
 			isa = PBXGroup;
 			children = (
+				F710E9421C66A84800B5294D /* Controllers */,
 				F710E92B1C66A23300B5294D /* AppDelegate.swift */,
-				F710E92D1C66A23300B5294D /* ViewController.swift */,
 				F710E92F1C66A23300B5294D /* Main.storyboard */,
 				F710E9351C66A23300B5294D /* Assets.xcassets */,
 				F710E9371C66A23300B5294D /* LaunchScreen.storyboard */,
@@ -65,6 +65,14 @@
 				F710E9321C66A23300B5294D /* USWNT.xcdatamodeld */,
 			);
 			path = USWNT;
+			sourceTree = "<group>";
+		};
+		F710E9421C66A84800B5294D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F710E9401C66A84400B5294D /* RootTabBarController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +107,7 @@
 				TargetAttributes = {
 					F710E9271C66A23300B5294D = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = QC4NQ4A3Z9;
 					};
 				};
 			};
@@ -138,8 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F710E92E1C66A23300B5294D /* ViewController.swift in Sources */,
 				F710E9341C66A23300B5294D /* USWNT.xcdatamodeld in Sources */,
+				F710E9411C66A84400B5294D /* RootTabBarController.swift in Sources */,
 				F710E92C1C66A23300B5294D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = USWNT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = samsyang.ios.USWNT;
@@ -264,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = USWNT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = samsyang.ios.USWNT;
@@ -290,6 +301,7 @@
 				F710E93F1C66A23300B5294D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
