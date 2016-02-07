@@ -6,25 +6,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Schedule-->
-        <scene sceneID="T1o-ih-Czg">
-            <objects>
-                <viewController id="dQF-mo-hLS" userLabel="Schedule" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MiO-mu-UwB"/>
-                        <viewControllerLayoutGuide type="bottom" id="Kcg-11-Dxb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RcN-5w-s4P">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Schedule" id="xQ5-KT-W5i" userLabel="Schedule"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R3J-Vy-zcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1253" y="678"/>
-        </scene>
         <!--Highlights & News-->
         <scene sceneID="JEg-NK-bFd">
             <objects>
@@ -44,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="1253" y="-642"/>
         </scene>
-        <!--Players-->
+        <!--Current Roster-->
         <scene sceneID="Gnq-pe-yLr">
             <objects>
                 <collectionViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="currentContext" id="Lpk-KB-Mjt" customClass="PlayersViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,7 +71,7 @@
                             <outlet property="delegate" destination="Lpk-KB-Mjt" id="XiX-wS-HRm"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Players" id="Uc0-cu-JoV"/>
+                    <tabBarItem key="tabBarItem" title="Current Roster" id="Uc0-cu-JoV"/>
                     <connections>
                         <outlet property="playersCollectionView" destination="pSq-5q-boF" id="odD-lV-Qd5"/>
                     </connections>
@@ -237,10 +218,87 @@
             </objects>
             <point key="canvasLocation" x="1938" y="7"/>
         </scene>
-        <!--Results & Stats-->
+        <!--Schedule & Results-->
+        <scene sceneID="psH-IX-A8f">
+            <objects>
+                <tableViewController id="fMT-30-usE" customClass="ScheduleTableViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" id="IjU-0N-FYi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kGameTableCellIdentifier" id="PXT-FQ-0xm" customClass="GameTableViewCell" customModule="USWNT" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="66"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXT-FQ-0xm" id="bk3-9K-ryg">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="65.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February 10, 2016" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-Cp-ywm">
+                                            <rect key="frame" x="8" y="0.0" width="53" height="65.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="53" id="Erz-gP-m5V"/>
+                                                <constraint firstAttribute="height" constant="65.5" id="shv-Fr-6fz"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 PM CT" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mek-mq-QDq">
+                                            <rect key="frame" x="69" y="-1" width="61" height="65.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="61" id="Dea-RR-cs9"/>
+                                                <constraint firstAttribute="height" constant="65.5" id="Tnp-Jk-Ud4"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-UltraLight" family="Avenir Next Condensed" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matchup Matchup Matchup" lineBreakMode="tailTruncation" numberOfLines="3" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoT-7B-Lp3">
+                                            <rect key="frame" x="135" y="0.0" width="465" height="66"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="66" id="SlV-Hb-iYq"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-UltraLightItalic" family="Avenir Next" pointSize="13"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FgU-Cp-ywm" firstAttribute="top" secondItem="bk3-9K-ryg" secondAttribute="topMargin" constant="-8" id="9eL-yT-VG1"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="OoT-7B-Lp3" secondAttribute="trailing" constant="-8" id="Ejd-yI-BOI"/>
+                                        <constraint firstItem="mek-mq-QDq" firstAttribute="leading" secondItem="FgU-Cp-ywm" secondAttribute="trailing" constant="8" id="H1P-9S-u9P"/>
+                                        <constraint firstItem="OoT-7B-Lp3" firstAttribute="top" secondItem="bk3-9K-ryg" secondAttribute="topMargin" constant="-8" id="Hhe-24-ixB"/>
+                                        <constraint firstItem="OoT-7B-Lp3" firstAttribute="leading" secondItem="mek-mq-QDq" secondAttribute="trailing" constant="5" id="JDg-xM-zvM"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="FgU-Cp-ywm" secondAttribute="leading" id="kga-r1-rrO"/>
+                                        <constraint firstItem="mek-mq-QDq" firstAttribute="top" secondItem="bk3-9K-ryg" secondAttribute="topMargin" constant="-9" id="wsj-Ac-V5G"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameDateLabel" destination="FgU-Cp-ywm" id="Wzj-Of-znD"/>
+                                    <outlet property="gameTimeLabel" destination="mek-mq-QDq" id="JvS-sJ-qoO"/>
+                                    <outlet property="matchupLabel" destination="OoT-7B-Lp3" id="Uwb-7q-EgB"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fMT-30-usE" id="LiC-3d-POO"/>
+                            <outlet property="delegate" destination="fMT-30-usE" id="r4y-ed-BU7"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Schedule &amp; Results" id="75r-ka-Hd9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAK-Ia-QTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1253" y="666"/>
+        </scene>
+        <!--Stats & Records-->
         <scene sceneID="Fdu-Qg-UyP">
             <objects>
-                <viewController id="JFn-9z-BXM" userLabel="Results &amp; Stats" sceneMemberID="viewController">
+                <viewController id="JFn-9z-BXM" userLabel="Stats &amp; Records" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jjA-u4-kO6"/>
                         <viewControllerLayoutGuide type="bottom" id="BUQ-1P-dOA"/>
@@ -250,7 +308,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Results &amp; Stats" id="u0u-hy-7US" userLabel="Results"/>
+                    <tabBarItem key="tabBarItem" title="Stats &amp; Records" id="u0u-hy-7US" userLabel="Results"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2d1-bk-6sa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -269,8 +327,8 @@
                     <connections>
                         <segue destination="rvq-TB-rlu" kind="relationship" relationship="viewControllers" id="Hnx-Ys-pTs"/>
                         <segue destination="Lpk-KB-Mjt" kind="relationship" relationship="viewControllers" id="h5b-Ww-sSF"/>
-                        <segue destination="dQF-mo-hLS" kind="relationship" relationship="viewControllers" id="5FE-pc-PDx"/>
                         <segue destination="JFn-9z-BXM" kind="relationship" relationship="viewControllers" id="ygP-gz-HHB"/>
+                        <segue destination="fMT-30-usE" kind="relationship" relationship="viewControllers" id="wFB-7c-IbM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bl5-D0-vRf" userLabel="First Responder" sceneMemberID="firstResponder"/>
