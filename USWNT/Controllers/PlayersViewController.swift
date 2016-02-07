@@ -9,12 +9,14 @@
 import UIKit
 import CoreData
 
-class PlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PlayersViewController: UICollectionViewController {
     var players = []
+    @IBOutlet var playersCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPlayers()
+        playersCollectionView.backgroundColor = UIColor.whiteColor()
         // Do any additional setup after loading the view.
     }
 
@@ -29,7 +31,8 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         let fetchRequest = NSFetchRequest(entityName: PLAYER_ENTITY_NAME)
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
-            players = results as! [NSManagedObject]
+            let nameSortDescriptor:NSSortDescriptor = NSSortDescriptor(key:"firstName", ascending: true)
+            players = (results as NSArray).sortedArrayUsingDescriptors([nameSortDescriptor])
             if (players.count == 0) {
                 self.createPlayers()
             }
@@ -54,6 +57,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         morganBrian.setValue("5-7", forKey: HEIGHT_ATTRIBUTE_NAME)
         morganBrian.setValue("St. Simons Island, Ga.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         morganBrian.setValue("Houston Dash", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        morganBrian.setValue("morgan-brian", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let crystalDunn = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -64,6 +68,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         crystalDunn.setValue("5-1", forKey: HEIGHT_ATTRIBUTE_NAME)
         crystalDunn.setValue("Rockville Centre, N.Y.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         crystalDunn.setValue("Washington Spirit", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        crystalDunn.setValue("crystal-dunn", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let ashlynHarris = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -74,6 +79,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         ashlynHarris.setValue("5-9", forKey: HEIGHT_ATTRIBUTE_NAME)
         ashlynHarris.setValue("Satellite Beach, Fla.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         ashlynHarris.setValue("Orlando Pride", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        ashlynHarris.setValue("ashlyn-harris", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let tobinHeath = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -84,6 +90,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         tobinHeath.setValue("5-6", forKey: HEIGHT_ATTRIBUTE_NAME)
         tobinHeath.setValue("Basking Ridge, N.J.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         tobinHeath.setValue("Portland Thorns FC", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        tobinHeath.setValue("tobin-heath", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let jaeleneHinkle = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -94,6 +101,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         jaeleneHinkle.setValue("5-4", forKey: HEIGHT_ATTRIBUTE_NAME)
         jaeleneHinkle.setValue("Denver, Colo.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         jaeleneHinkle.setValue("Western New York Flash", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        jaeleneHinkle.setValue("jaelene-hinkle", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let lindseyHoran = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -104,6 +112,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         lindseyHoran.setValue("5-9", forKey: HEIGHT_ATTRIBUTE_NAME)
         lindseyHoran.setValue("Golden, Colo.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         lindseyHoran.setValue("Portland Thorns FC", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        lindseyHoran.setValue("lindsey-horan", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let julieJohnston = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -114,6 +123,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         julieJohnston.setValue("5-7", forKey: HEIGHT_ATTRIBUTE_NAME)
         julieJohnston.setValue("Mesa, Arix.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         julieJohnston.setValue("Chicago Red Stars", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        julieJohnston.setValue("julie-johnston", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let meghanKlingenberg = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -124,6 +134,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         meghanKlingenberg.setValue("5-2", forKey: HEIGHT_ATTRIBUTE_NAME)
         meghanKlingenberg.setValue("Gibsonia, Pa.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         meghanKlingenberg.setValue("Portland Thorns FC", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        meghanKlingenberg.setValue("meghan-klingenberg", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let aliKrieger = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -134,6 +145,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         aliKrieger.setValue("5-6", forKey: HEIGHT_ATTRIBUTE_NAME)
         aliKrieger.setValue("Dumfries, Va.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         aliKrieger.setValue("Washington Spirit", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        aliKrieger.setValue("ali-krieger", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let carliLloyd = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -144,6 +156,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         carliLloyd.setValue("5-8", forKey: HEIGHT_ATTRIBUTE_NAME)
         carliLloyd.setValue("Delran, N.J.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         carliLloyd.setValue("Houston Dash", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        carliLloyd.setValue("carli-lloyd", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let stephanieMcCaffrey = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -154,6 +167,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         stephanieMcCaffrey.setValue("5-6", forKey: HEIGHT_ATTRIBUTE_NAME)
         stephanieMcCaffrey.setValue("Winchester, Mass.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         stephanieMcCaffrey.setValue("Boston Breakers", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        stephanieMcCaffrey.setValue("stephanie-mccaffrey", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let samanthaMewis = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -164,6 +178,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         samanthaMewis.setValue("6-0", forKey: HEIGHT_ATTRIBUTE_NAME)
         samanthaMewis.setValue("Hanson, Mass.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         samanthaMewis.setValue("Western New York Flash", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        samanthaMewis.setValue("samantha-mewis", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let alexMorgan = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -174,6 +189,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         alexMorgan.setValue("5-7", forKey: HEIGHT_ATTRIBUTE_NAME)
         alexMorgan.setValue("Diamond Bar, Calif.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         alexMorgan.setValue("Orlando Pride", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        alexMorgan.setValue("alex-morgan", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let alyssaNaeher = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -184,16 +200,18 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         alyssaNaeher.setValue("5-9", forKey: HEIGHT_ATTRIBUTE_NAME)
         alyssaNaeher.setValue("Bridgeport, Conn.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         alyssaNaeher.setValue("Chicago Red Stars", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        alyssaNaeher.setValue("alyssa-naeher", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
-        let kellyOhara = NSManagedObject(entity: playerEntityDescription!,
+        let kelleyOhara = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
-        kellyOhara.setValue("Kelly", forKey: FIRST_NAME_ATTRIBUTE_NAME)
-        kellyOhara.setValue("O'Hara", forKey: LAST_NAME_ATTRIBUTE_NAME)
-        kellyOhara.setValue("Defender", forKey: POSITION_ATTRIBUTE_NAME)
-        kellyOhara.setValue("Aug 4, 1988", forKey: DOB_ATTRIBUTE_NAME)
-        kellyOhara.setValue("5-5", forKey: HEIGHT_ATTRIBUTE_NAME)
-        kellyOhara.setValue("Fayetteville, Ga.", forKey: HOMETOWN_ATTRIBUTE_NAME)
-        kellyOhara.setValue("Sky Blue FC", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("Kelley", forKey: FIRST_NAME_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("O'Hara", forKey: LAST_NAME_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("Defender", forKey: POSITION_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("Aug 4, 1988", forKey: DOB_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("5-5", forKey: HEIGHT_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("Fayetteville, Ga.", forKey: HOMETOWN_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("Sky Blue FC", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        kelleyOhara.setValue("kelley-ohara", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let christenPress = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -204,6 +222,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         christenPress.setValue("5-7", forKey: HEIGHT_ATTRIBUTE_NAME)
         christenPress.setValue("Palos Verdes Estate, Calif.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         christenPress.setValue("Chicago Red Stars", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        christenPress.setValue("christen-press", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let malloryPugh = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -214,6 +233,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         malloryPugh.setValue("5-4", forKey: HEIGHT_ATTRIBUTE_NAME)
         malloryPugh.setValue("Highland Ranch, Colo.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         malloryPugh.setValue("Real Colorado", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        malloryPugh.setValue("mallory-pugh", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let beckySauerbrunn = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -224,6 +244,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         beckySauerbrunn.setValue("5-7", forKey: HEIGHT_ATTRIBUTE_NAME)
         beckySauerbrunn.setValue("St. Louis, Mo.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         beckySauerbrunn.setValue("FC Kansas City", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        beckySauerbrunn.setValue("becky-sauerbrunn", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let hopeSolo = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -234,6 +255,7 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         hopeSolo.setValue("5-9", forKey: HEIGHT_ATTRIBUTE_NAME)
         hopeSolo.setValue("Richland, Wash.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         hopeSolo.setValue("Seattle Reign FC", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        hopeSolo.setValue("hope-solo", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
         let emilySonnett = NSManagedObject(entity: playerEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
@@ -244,8 +266,9 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         emilySonnett.setValue("5-7", forKey: HEIGHT_ATTRIBUTE_NAME)
         emilySonnett.setValue("Marietta, Ga.", forKey: HOMETOWN_ATTRIBUTE_NAME)
         emilySonnett.setValue("Portland Thorns FC", forKey: CLUB_NAME_ATTRIBUTE_NAME)
+        emilySonnett.setValue("emily-sonnett", forKey: HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME)
         
-        players = [morganBrian, crystalDunn, ashlynHarris, tobinHeath, jaeleneHinkle, lindseyHoran, julieJohnston, meghanKlingenberg, aliKrieger, carliLloyd, stephanieMcCaffrey, samanthaMewis, alexMorgan, alyssaNaeher, kellyOhara, christenPress, malloryPugh, beckySauerbrunn, hopeSolo, emilySonnett]
+        players = [morganBrian, crystalDunn, ashlynHarris, tobinHeath, jaeleneHinkle, lindseyHoran, julieJohnston, meghanKlingenberg, aliKrieger, carliLloyd, stephanieMcCaffrey, samanthaMewis, alexMorgan, alyssaNaeher, kelleyOhara, christenPress, malloryPugh, beckySauerbrunn, hopeSolo, emilySonnett]
         
         //4
         do {
@@ -255,19 +278,19 @@ class PlayersViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(players.count)
         return players.count
     }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("kPlayersCellIdentifier") as! PlayerTableViewCell
-        let player:Player = players[indexPath.row] as! Player
-        let fullName = player.firstName! + " " + player.lastName!
-        cell.nameLabel.text = fullName
-        cell.positionLabel.text = player.position
-        cell.clubNameLabel.text = player.clubName
+
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("kPlayerCollectionCellIdentifier", forIndexPath: indexPath) as! PlayerCollectionViewCell
+        let player = players.objectAtIndex(indexPath.item) as! Player
+        cell.nameLabel.text = player.firstName! + " " + player.lastName!
+        cell.headshotImageView.image = UIImage(named: player.headshotImageName!)
         return cell
     }
+    
     /*
     // MARK: - Navigation
 

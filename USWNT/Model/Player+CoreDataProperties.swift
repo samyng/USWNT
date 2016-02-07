@@ -22,6 +22,6 @@ extension Player {
     @NSManaged var dateOfBirth: String?
     @NSManaged var height: String?
     @NSManaged var hometown: String?
-    @NSManaged var headshot: NSData?
+    @NSManaged var headshotImageName: String?
 
 }

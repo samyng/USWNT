@@ -17,6 +17,7 @@ let HEIGHT_ATTRIBUTE_NAME = "height"
 let HOMETOWN_ATTRIBUTE_NAME = "hometown"
 let NICK_NAME_ATTRIBUTE_NAME = "nickName"
 let POSITION_ATTRIBUTE_NAME = "position"
+let HEADSHOT_IMAGE_NAME_ATTRIBUTE_NAME = "headshotImageName"
 
 class Constants: NSObject {
 

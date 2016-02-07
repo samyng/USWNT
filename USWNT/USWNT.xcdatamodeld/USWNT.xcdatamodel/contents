@@ -4,7 +4,7 @@
         <attribute name="clubName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="headshot" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="headshotImageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hometown" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
