@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Schedule-->
@@ -46,7 +47,7 @@
         <!--Players-->
         <scene sceneID="Gnq-pe-yLr">
             <objects>
-                <collectionViewController id="Lpk-KB-Mjt" customClass="PlayersViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="currentContext" id="Lpk-KB-Mjt" customClass="PlayersViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pSq-5q-boF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,6 +81,7 @@
                                 <connections>
                                     <outlet property="headshotImageView" destination="MMW-pe-4Pj" id="LKX-dU-8Fd"/>
                                     <outlet property="nameLabel" destination="Z7R-MC-Sng" id="dvM-5z-NNp"/>
+                                    <segue destination="ZAn-Cq-0hK" kind="presentation" id="N8V-QR-bSd"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -96,6 +98,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3GC-hg-oFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1253" y="7"/>
+        </scene>
+        <!--Player Detail View Controller-->
+        <scene sceneID="2pf-1a-IyS">
+            <objects>
+                <viewController id="ZAn-Cq-0hK" customClass="PlayerDetailViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fv9-rT-PZj"/>
+                        <viewControllerLayoutGuide type="bottom" id="hfq-Wl-Ayo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NxL-Ho-cBp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7u-vp-lh7">
+                                <rect key="frame" x="8" y="20" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jIY-NA-3Bx"/>
+                                    <constraint firstAttribute="width" constant="46" id="jhR-aP-kEQ"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="AtS-8A-Oqu" kind="unwind" unwindAction="unwindForSegue:towardsViewController:" id="YMj-df-zEw"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyC-VB-NfI">
+                                <rect key="frame" x="8" y="55" width="120" height="120"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qK4-L8-ik3">
+                                <rect key="frame" x="136" y="55" width="444" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Position:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoA-it-wBe">
+                                <rect key="frame" x="136" y="74" width="444" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date of Birth:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-3B-NDM">
+                                <rect key="frame" x="136" y="95" width="444" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Height:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8fP-bh-1Fa">
+                                <rect key="frame" x="136" y="116" width="444" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hometown:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7R-Hb-WeP">
+                                <rect key="frame" x="136" y="137" width="444" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D04-Ed-zSG">
+                                <rect key="frame" x="136" y="158" width="444" height="21"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="a7u-vp-lh7" secondAttribute="leading" constant="12" id="3BY-mc-oIO"/>
+                            <constraint firstItem="a7u-vp-lh7" firstAttribute="top" secondItem="Fv9-rT-PZj" secondAttribute="bottom" id="SMF-3y-kGY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="clubLabel" destination="D04-Ed-zSG" id="Xfq-BB-Wu4"/>
+                        <outlet property="dateOfBirthLabel" destination="nNc-3B-NDM" id="47S-LH-9af"/>
+                        <outlet property="headshotImageView" destination="cyC-VB-NfI" id="J67-cW-0I5"/>
+                        <outlet property="heightLabel" destination="8fP-bh-1Fa" id="csR-EV-ey1"/>
+                        <outlet property="hometownLabel" destination="t7R-Hb-WeP" id="yqf-xc-bmD"/>
+                        <outlet property="nameLabel" destination="qK4-L8-ik3" id="3tF-kA-kBg"/>
+                        <outlet property="positionLabel" destination="PoA-it-wBe" id="Dc2-L4-v1J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSQ-lV-Zog" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AtS-8A-Oqu" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="7"/>
         </scene>
         <!--Results & Stats-->
         <scene sceneID="Fdu-Qg-UyP">
@@ -120,6 +206,7 @@
         <scene sceneID="dea-2k-N66">
             <objects>
                 <tabBarController id="ZLF-NM-5PN" userLabel="Root Tab Bar Controller" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="r76-fj-vMo"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Z8a-fF-Wp2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

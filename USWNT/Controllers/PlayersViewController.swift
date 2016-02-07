@@ -279,7 +279,6 @@ class PlayersViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(players.count)
         return players.count
     }
 
@@ -291,14 +290,19 @@ class PlayersViewController: UICollectionViewController {
         return cell
     }
     
-    /*
-    // MARK: - Navigation
-
+    @IBAction override func unwindForSegue(unwindSegue: UIStoryboardSegue, towardsViewController subsequentVC: UIViewController) {
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let cell = sender as! PlayerCollectionViewCell
+        let indexPath = playersCollectionView .indexPathForCell(cell)
+        let item = indexPath?.item
+        let detailViewController = segue.destinationViewController as! PlayerDetailViewController
+        detailViewController.player = players.objectAtIndex(item!) as! Player
+        print(detailViewController.player.firstName)
     }
-    */
 
 }
