@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Schedule-->
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="xQ5-KT-W5i" userLabel="Schedule"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" id="xQ5-KT-W5i" userLabel="Schedule"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3J-Vy-zcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -35,13 +36,68 @@
                     <view key="view" contentMode="scaleToFill" id="LAn-Za-agI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-qn-Y8r">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="kPlayersCellIdentifier" id="Hhv-gX-4WY" customClass="PlayerTableViewCell" customModule="USWNT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hhv-gX-4WY" id="ztc-H8-UcM">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="89.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0vy-tY-IrA">
+                                                    <rect key="frame" x="8" y="10" width="70" height="70"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaE-Rg-wXZ">
+                                                    <rect key="frame" x="86" y="10" width="506" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ah8-KS-yCm">
+                                                    <rect key="frame" x="86" y="34" width="506" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Po-rV-v2A">
+                                                    <rect key="frame" x="86" y="59" width="506" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="clubNameLabel" destination="4Po-rV-v2A" id="M2v-cx-BKt"/>
+                                            <outlet property="headshotImageView" destination="0vy-tY-IrA" id="AUd-e1-bAb"/>
+                                            <outlet property="nameLabel" destination="RaE-Rg-wXZ" id="0Ms-IF-3CT"/>
+                                            <outlet property="positionLabel" destination="Ah8-KS-yCm" id="wDo-Nb-FjS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="q3E-nf-VeG" id="p9i-WG-nAY"/>
+                                    <outlet property="delegate" destination="q3E-nf-VeG" id="plu-ML-XJM"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="r6w-dE-cmN" firstAttribute="top" secondItem="Foy-qn-Y8r" secondAttribute="bottom" id="Oxa-NP-B0h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Foy-qn-Y8r" secondAttribute="trailing" constant="-20" id="Qww-WU-wox"/>
+                            <constraint firstItem="Foy-qn-Y8r" firstAttribute="top" secondItem="RK1-F3-qDy" secondAttribute="bottom" id="R0S-AD-yiT"/>
+                            <constraint firstItem="Foy-qn-Y8r" firstAttribute="leading" secondItem="LAn-Za-agI" secondAttribute="leadingMargin" constant="-20" id="tfz-X0-WYk"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ppL-EY-Ezk" userLabel="Players"/>
+                    <tabBarItem key="tabBarItem" title="Players" id="ppL-EY-Ezk" userLabel="Players"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="isv-qN-dbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253" y="22"/>
+            <point key="canvasLocation" x="1253" y="26"/>
         </scene>
         <!--Highlights & News-->
         <scene sceneID="JEg-NK-bFd">
@@ -56,7 +112,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="PmS-x1-rzP" userLabel="Highlights"/>
+                    <tabBarItem key="tabBarItem" title="Highlights &amp; News" id="PmS-x1-rzP" userLabel="Highlights"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIH-H5-Pj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -75,7 +131,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="u0u-hy-7US" userLabel="Results"/>
+                    <tabBarItem key="tabBarItem" title="Results &amp; Stats" id="u0u-hy-7US" userLabel="Results"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2d1-bk-6sa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

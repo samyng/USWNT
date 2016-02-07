@@ -14,8 +14,10 @@
 		F710E9391C66A23300B5294D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F710E9371C66A23300B5294D /* LaunchScreen.storyboard */; };
 		F710E9411C66A84400B5294D /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710E9401C66A84400B5294D /* RootTabBarController.swift */; };
 		F7E34CA41C66AE4200EE7036 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */; };
-		F7E34CA51C66AE4200EE7036 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E34CA31C66AE4200EE7036 /* PlayersViewController.xib */; };
 		F7E34CA71C66AEDB00EE7036 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CA61C66AEDB00EE7036 /* Constants.swift */; };
+		F7E34CAA1C66C23300EE7036 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CA91C66C23300EE7036 /* PlayerTableViewCell.swift */; };
+		F7E34CB31C66C43800EE7036 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CB11C66C43800EE7036 /* Player+CoreDataProperties.swift */; };
+		F7E34CB41C66C43800EE7036 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CB21C66C43800EE7036 /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +30,10 @@
 		F710E93A1C66A23300B5294D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F710E9401C66A84400B5294D /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
-		F7E34CA31C66AE4200EE7036 /* PlayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersViewController.xib; sourceTree = "<group>"; };
 		F7E34CA61C66AEDB00EE7036 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F7E34CA91C66C23300EE7036 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
+		F7E34CB11C66C43800EE7036 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F7E34CB21C66C43800EE7036 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 		F710E92A1C66A23300B5294D /* USWNT */ = {
 			isa = PBXGroup;
 			children = (
+				F7E34CAC1C66C3F300EE7036 /* Model */,
+				F7E34CA81C66C21700EE7036 /* Cells */,
 				F710E9421C66A84800B5294D /* Controllers */,
 				F7E34CA61C66AEDB00EE7036 /* Constants.swift */,
 				F710E92B1C66A23300B5294D /* AppDelegate.swift */,
@@ -79,9 +85,25 @@
 			children = (
 				F710E9401C66A84400B5294D /* RootTabBarController.swift */,
 				F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */,
-				F7E34CA31C66AE4200EE7036 /* PlayersViewController.xib */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F7E34CA81C66C21700EE7036 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F7E34CA91C66C23300EE7036 /* PlayerTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F7E34CAC1C66C3F300EE7036 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F7E34CB11C66C43800EE7036 /* Player+CoreDataProperties.swift */,
+				F7E34CB21C66C43800EE7036 /* Player.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +166,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F710E9391C66A23300B5294D /* LaunchScreen.storyboard in Resources */,
-				F7E34CA51C66AE4200EE7036 /* PlayersViewController.xib in Resources */,
 				F710E9361C66A23300B5294D /* Assets.xcassets in Resources */,
 				F710E9311C66A23300B5294D /* Main.storyboard in Resources */,
 			);
@@ -157,8 +178,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7E34CAA1C66C23300EE7036 /* PlayerTableViewCell.swift in Sources */,
 				F7E34CA71C66AEDB00EE7036 /* Constants.swift in Sources */,
 				F710E9341C66A23300B5294D /* USWNT.xcdatamodeld in Sources */,
+				F7E34CB31C66C43800EE7036 /* Player+CoreDataProperties.swift in Sources */,
+				F7E34CB41C66C43800EE7036 /* Player.swift in Sources */,
 				F7E34CA41C66AE4200EE7036 /* PlayersViewController.swift in Sources */,
 				F710E9411C66A84400B5294D /* RootTabBarController.swift in Sources */,
 				F710E92C1C66A23300B5294D /* AppDelegate.swift in Sources */,

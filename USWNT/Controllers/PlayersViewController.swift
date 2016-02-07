@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class PlayersViewController: UIViewController {
+class PlayersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var players = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPlayers()
@@ -255,7 +255,19 @@ class PlayersViewController: UIViewController {
         }
     }
     
-
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return players.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("kPlayersCellIdentifier") as! PlayerTableViewCell
+        let player:Player = players[indexPath.row] as! Player
+        let fullName = player.firstName! + " " + player.lastName!
+        cell.nameLabel.text = fullName
+        cell.positionLabel.text = player.position
+        cell.clubNameLabel.text = player.clubName
+        return cell
+    }
     /*
     // MARK: - Navigation
 
