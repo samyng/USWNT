@@ -302,7 +302,6 @@ class PlayersViewController: UICollectionViewController {
         let item = indexPath?.item
         let detailViewController = segue.destinationViewController as! PlayerDetailViewController
         detailViewController.player = players.objectAtIndex(item!) as! Player
-        print(detailViewController.player.firstName)
     }
 
 }
