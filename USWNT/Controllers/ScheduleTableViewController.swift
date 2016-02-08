@@ -19,6 +19,7 @@ class ScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadGames()
+        self.tableView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 50.0, 0.0)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
