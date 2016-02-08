@@ -61,7 +61,7 @@ class ScheduleTableViewController: UITableViewController {
             cell.matchupLabel.text = game.matchup ?? ""
             cell.gameDateLabel.text = game.gameDate! ?? "" + "; " + game.gameTime! ?? ""
             cell.venueLabel.text = game.venue! ?? "" + " (" + (game.attendance?.stringValue)! ?? "" + " attended)"
-            cell.resultsLabel.text = game.result! ?? "" + "; Goal scorers: " + game.goalScorers! ?? ""
+            cell.resultsLabel.text = game.result! + "; Goal scorers: " + game.goalScorers!
         }
 
         return cell
