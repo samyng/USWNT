@@ -19,7 +19,6 @@ class ScheduleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadGames()
-        self.tableView.contentInset = UIEdgeInsetsMake(30.0, 0.0, 50.0, 0.0)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -52,16 +51,16 @@ class ScheduleTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("kGameTableCellIdentifier", forIndexPath: indexPath) as! GameTableViewCell
         if (indexPath.section == UPCOMING_GAMES_SECTION_INDEX) {
             let game = scheduleGames.objectAtIndex(indexPath.row) as! Game
-            cell.matchupLabel.text = game.matchup
-            cell.gameDateLabel.text = game.gameDate! + "; " + game.gameTime!
-            cell.venueLabel.text = game.venue
+            cell.matchupLabel.text = game.matchup ?? ""
+            cell.gameDateLabel.text = game.gameDate! ?? "" + "; " + game.gameTime! ?? ""
+            cell.venueLabel.text = game.venue ?? ""
             cell.resultsLabel.text = ""
         } else if (indexPath.section == RESULT_GAMES_SECTION_INDEX) {
             let game = resultGames.objectAtIndex(indexPath.row) as! Game
-            cell.matchupLabel.text = game.matchup
-            cell.gameDateLabel.text = game.gameDate! + "; " + game.gameTime!
-            cell.venueLabel.text = game.venue! + " (" + (game.attendance?.stringValue)! + " attended)"
-            cell.resultsLabel.text = game.result! + "; Goal scorers: " + game.goalScorers!
+            cell.matchupLabel.text = game.matchup ?? ""
+            cell.gameDateLabel.text = game.gameDate! ?? "" + "; " + game.gameTime! ?? ""
+            cell.venueLabel.text = game.venue! ?? "" + " (" + (game.attendance?.stringValue)! ?? "" + " attended)"
+            cell.resultsLabel.text = game.result! ?? "" + "; Goal scorers: " + game.goalScorers! ?? ""
         }
 
         return cell
