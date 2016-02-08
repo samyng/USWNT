@@ -11,8 +11,9 @@ import UIKit
 class GameTableViewCell: UITableViewCell {
 
     @IBOutlet weak var gameDateLabel: UILabel!
-    @IBOutlet weak var gameTimeLabel: UILabel!
     @IBOutlet weak var matchupLabel: UILabel!
+    @IBOutlet weak var venueLabel: UILabel!
+    @IBOutlet weak var resultsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -9,11 +9,17 @@
 import UIKit
 import CoreData
 
+let UPCOMING_GAMES_SECTION_INDEX = 0
+let RESULT_GAMES_SECTION_INDEX = 1
+
 class ScheduleTableViewController: UITableViewController {
-    var games = []
+    var scheduleGames = []
+    var resultGames = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadGames()
+        self.tableView.contentInset = UIEdgeInsetsMake(30.0, 0.0, 50.0, 0.0)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -29,27 +35,45 @@ class ScheduleTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+        if (section == UPCOMING_GAMES_SECTION_INDEX) {
+            return scheduleGames.count
+        } else if (section == RESULT_GAMES_SECTION_INDEX) {
+            return resultGames.count
+        } else {
+            return 0
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("kGameTableCellIdentifier", forIndexPath: indexPath) as! GameTableViewCell
-        let game = games.objectAtIndex(indexPath.row) as! Game
-        cell.gameDateLabel.text = game.gameDate
-        cell.gameTimeLabel.text = game.gameTime
-        cell.matchupLabel.text = game.matchup
+        if (indexPath.section == UPCOMING_GAMES_SECTION_INDEX) {
+            let game = scheduleGames.objectAtIndex(indexPath.row) as! Game
+            cell.matchupLabel.text = game.matchup
+            cell.gameDateLabel.text = game.gameDate! + "; " + game.gameTime!
+            cell.venueLabel.text = game.venue
+            cell.resultsLabel.text = ""
+        } else if (indexPath.section == RESULT_GAMES_SECTION_INDEX) {
+            let game = resultGames.objectAtIndex(indexPath.row) as! Game
+            cell.matchupLabel.text = game.matchup
+            cell.gameDateLabel.text = game.gameDate! + "; " + game.gameTime!
+            cell.venueLabel.text = game.venue! + " (" + (game.attendance?.stringValue)! + " attended)"
+            cell.resultsLabel.text = game.result! + "; Goal scorers: " + game.goalScorers!
+        }
+
         return cell
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if (section == 0) {
-            return "Schedule"
-        } else {
+        if (section == UPCOMING_GAMES_SECTION_INDEX) {
+            return "Upcoming Games"
+        } else if (section == RESULT_GAMES_SECTION_INDEX) {
             return "Results"
+        } else {
+            return ""
         }
     }
 
@@ -104,9 +128,24 @@ class ScheduleTableViewController: UITableViewController {
         let fetchRequest = NSFetchRequest(entityName:GAME_ENTITY_NAME)
         do {
             let results = try managedContext.executeFetchRequest(fetchRequest)
+            var upcomingGames:[Game] = []
+            var pastGames:[Game] = []
+            for result in results {
+               let game = result as! Game
+                if game.upcoming == 1 {
+                    upcomingGames.append(game)
+                } else {
+                    pastGames.append(game)
+                }
+            }
+            scheduleGames = upcomingGames
+            resultGames = pastGames
+            
             let gameSortDescriptor:NSSortDescriptor = NSSortDescriptor(key:GAME_INDEX_ATTRIBUTE_NAME, ascending: true)
-            games = (results as NSArray).sortedArrayUsingDescriptors([gameSortDescriptor])
-            if (games.count == 0) {
+            scheduleGames = (scheduleGames as NSArray).sortedArrayUsingDescriptors([gameSortDescriptor])
+            resultGames = (resultGames as NSArray).sortedArrayUsingDescriptors([gameSortDescriptor])
+            
+            if (scheduleGames.count == 0) {
                 self.createGames()
             }
         } catch let error as NSError {
@@ -128,6 +167,7 @@ class ScheduleTableViewController: UITableViewController {
         match2016_1.setValue("WNT vs Ireland", forKey: MATCHUP_ATTRIBUTE_NAME)
         match2016_1.setValue("5-0 W", forKey: RESULT_ATTRIBUTE_NAME)
         match2016_1.setValue(NSNumber(integer: 0), forKey: UPCOMING_ATTRIBUTE_NAME)
+        match2016_1.setValue("2 PM PT", forKey: GAME_TIME_ATTRIBUTE_NAME)
         match2016_1.setValue("Qualcomm Stadium; San Diego, Calif.", forKey: VENUE_ATTRIBUTE_NAME)
         match2016_1.setValue(NSNumber(integer: 1), forKey: GAME_INDEX_ATTRIBUTE_NAME)
         
@@ -161,7 +201,7 @@ class ScheduleTableViewController: UITableViewController {
         let match2016_5 = NSManagedObject(entity: gameEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
         match2016_5.setValue("February 19, 2016", forKey: GAME_DATE_ATTRIBUTE_NAME)
-        match2016_5.setValue("Women's Olympic Qualifying - Semifinals: Group A vs Group B", forKey: MATCHUP_ATTRIBUTE_NAME)
+        match2016_5.setValue("Women's Olympic Qualifying - Semifinals", forKey: MATCHUP_ATTRIBUTE_NAME)
         match2016_5.setValue("4:30 PM CT", forKey: GAME_TIME_ATTRIBUTE_NAME)
         match2016_5.setValue(NSNumber(integer: 1), forKey: UPCOMING_ATTRIBUTE_NAME)
         match2016_5.setValue("BBVA Compass Stadium; Houston, Texas", forKey: VENUE_ATTRIBUTE_NAME)
@@ -170,7 +210,7 @@ class ScheduleTableViewController: UITableViewController {
         let match2016_6 = NSManagedObject(entity: gameEntityDescription!,
             insertIntoManagedObjectContext: managedContext)
         match2016_6.setValue("February 21, 2016", forKey: GAME_DATE_ATTRIBUTE_NAME)
-        match2016_6.setValue("Women's Olympic Qualifying - Final: Winner Semifinal 1 vs Winner Semifinal 2", forKey: MATCHUP_ATTRIBUTE_NAME)
+        match2016_6.setValue("Women's Olympic Qualifying - Final", forKey: MATCHUP_ATTRIBUTE_NAME)
         match2016_6.setValue("4 PM CT", forKey: GAME_TIME_ATTRIBUTE_NAME)
         match2016_6.setValue(NSNumber(integer: 1), forKey: UPCOMING_ATTRIBUTE_NAME)
         match2016_6.setValue("BBVA Compass Stadium; Houston, Texas", forKey: VENUE_ATTRIBUTE_NAME)
@@ -203,7 +243,8 @@ class ScheduleTableViewController: UITableViewController {
         match2016_9.setValue("FAU Stadium; Boca Raton, Fla.", forKey: VENUE_ATTRIBUTE_NAME)
         match2016_1.setValue(NSNumber(integer: 9), forKey: GAME_INDEX_ATTRIBUTE_NAME)
         
-        games = [match2016_1, match2016_2, match2016_3, match2016_4, match2016_5, match2016_6, match2016_7, match2016_8, match2016_9]
+        scheduleGames = [match2016_2, match2016_3, match2016_4, match2016_5, match2016_6, match2016_7, match2016_8, match2016_9]
+        resultGames = [match2016_1]
         
         do {
             try managedContext.save()

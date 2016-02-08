@@ -222,7 +222,7 @@
         <scene sceneID="psH-IX-A8f">
             <objects>
                 <tableViewController id="fMT-30-usE" customClass="ScheduleTableViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" id="IjU-0N-FYi">
+                    <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="IjU-0N-FYi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -231,56 +231,43 @@
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kGameTableCellIdentifier" id="PXT-FQ-0xm" customClass="GameTableViewCell" customModule="USWNT" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="66"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXT-FQ-0xm" id="bk3-9K-ryg">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="65.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February 10, 2016" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-Cp-ywm">
-                                            <rect key="frame" x="8" y="0.0" width="53" height="65.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="53" id="Erz-gP-m5V"/>
-                                                <constraint firstAttribute="height" constant="65.5" id="shv-Fr-6fz"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="February 10, 2016; 7:30 PM CT" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-Cp-ywm">
+                                            <rect key="frame" x="8" y="21" width="584" height="21"/>
                                             <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:30 PM CT" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mek-mq-QDq">
-                                            <rect key="frame" x="69" y="-1" width="61" height="65.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="61" id="Dea-RR-cs9"/>
-                                                <constraint firstAttribute="height" constant="65.5" id="Tnp-Jk-Ud4"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-UltraLight" family="Avenir Next Condensed" pointSize="15"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5-0 W; Goal scorers: Lloyd, Morgan, Pugh" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mek-mq-QDq">
+                                            <rect key="frame" x="8" y="63" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Matchup Matchup Matchup" lineBreakMode="tailTruncation" numberOfLines="3" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoT-7B-Lp3">
-                                            <rect key="frame" x="135" y="0.0" width="465" height="66"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="66" id="SlV-Hb-iYq"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="AvenirNext-UltraLightItalic" family="Avenir Next" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Matchup Label" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoT-7B-Lp3">
+                                            <rect key="frame" x="8" y="0.0" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Venue:" lineBreakMode="tailTruncation" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQf-xM-XkS">
+                                            <rect key="frame" x="8" y="42" width="584" height="21"/>
+                                            <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="FgU-Cp-ywm" firstAttribute="top" secondItem="bk3-9K-ryg" secondAttribute="topMargin" constant="-8" id="9eL-yT-VG1"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="OoT-7B-Lp3" secondAttribute="trailing" constant="-8" id="Ejd-yI-BOI"/>
-                                        <constraint firstItem="mek-mq-QDq" firstAttribute="leading" secondItem="FgU-Cp-ywm" secondAttribute="trailing" constant="8" id="H1P-9S-u9P"/>
-                                        <constraint firstItem="OoT-7B-Lp3" firstAttribute="top" secondItem="bk3-9K-ryg" secondAttribute="topMargin" constant="-8" id="Hhe-24-ixB"/>
-                                        <constraint firstItem="OoT-7B-Lp3" firstAttribute="leading" secondItem="mek-mq-QDq" secondAttribute="trailing" constant="5" id="JDg-xM-zvM"/>
-                                        <constraint firstAttribute="leadingMargin" secondItem="FgU-Cp-ywm" secondAttribute="leading" id="kga-r1-rrO"/>
-                                        <constraint firstItem="mek-mq-QDq" firstAttribute="top" secondItem="bk3-9K-ryg" secondAttribute="topMargin" constant="-9" id="wsj-Ac-V5G"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="gameDateLabel" destination="FgU-Cp-ywm" id="Wzj-Of-znD"/>
-                                    <outlet property="gameTimeLabel" destination="mek-mq-QDq" id="JvS-sJ-qoO"/>
                                     <outlet property="matchupLabel" destination="OoT-7B-Lp3" id="Uwb-7q-EgB"/>
+                                    <outlet property="resultsLabel" destination="mek-mq-QDq" id="CAK-kU-83l"/>
+                                    <outlet property="venueLabel" destination="PQf-xM-XkS" id="0jd-Uq-k5c"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
