@@ -14,6 +14,7 @@
 		F710E9391C66A23300B5294D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F710E9371C66A23300B5294D /* LaunchScreen.storyboard */; };
 		F710E9411C66A84400B5294D /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F710E9401C66A84400B5294D /* RootTabBarController.swift */; };
 		F75DA4131C680A5400328BEF /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75DA4121C680A5400328BEF /* GameTableViewCell.swift */; };
+		F75DA4151C682B9200328BEF /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75DA4141C682B9200328BEF /* StoriesViewController.swift */; };
 		F7E34CA41C66AE4200EE7036 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */; };
 		F7E34CA71C66AEDB00EE7036 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CA61C66AEDB00EE7036 /* Constants.swift */; };
 		F7E34CB31C66C43800EE7036 /* Player+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E34CB11C66C43800EE7036 /* Player+CoreDataProperties.swift */; };
@@ -35,6 +36,7 @@
 		F710E93A1C66A23300B5294D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F710E9401C66A84400B5294D /* RootTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		F75DA4121C680A5400328BEF /* GameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
+		F75DA4141C682B9200328BEF /* StoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		F7E34CA61C66AEDB00EE7036 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F7E34CB11C66C43800EE7036 /* Player+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Player+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				F7E34CA21C66AE4200EE7036 /* PlayersViewController.swift */,
 				F7E34CB51C66D12500EE7036 /* PlayerDetailViewController.swift */,
 				F7E34CBF1C67FD4500EE7036 /* ScheduleTableViewController.swift */,
+				F75DA4141C682B9200328BEF /* StoriesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				F7E34CC01C67FD4500EE7036 /* ScheduleTableViewController.swift in Sources */,
 				F7E34CA71C66AEDB00EE7036 /* Constants.swift in Sources */,
 				F710E9341C66A23300B5294D /* USWNT.xcdatamodeld in Sources */,
+				F75DA4151C682B9200328BEF /* StoriesViewController.swift in Sources */,
 				F7E34CBA1C67DD0A00EE7036 /* PlayerCollectionViewCell.swift in Sources */,
 				F7E34CB31C66C43800EE7036 /* Player+CoreDataProperties.swift in Sources */,
 				F7E34CC71C6804B700EE7036 /* Game+CoreDataProperties.swift in Sources */,

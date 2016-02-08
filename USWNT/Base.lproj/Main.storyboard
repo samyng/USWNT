@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Highlights & News-->
+        <!--Stories & News-->
         <scene sceneID="JEg-NK-bFd">
             <objects>
-                <viewController id="rvq-TB-rlu" userLabel="Highlights &amp; News" sceneMemberID="viewController">
+                <viewController id="rvq-TB-rlu" customClass="StoriesViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BYc-5i-jB9"/>
                         <viewControllerLayoutGuide type="bottom" id="isv-a8-2oN"/>
@@ -17,18 +17,33 @@
                     <view key="view" contentMode="scaleToFill" id="m6L-lj-ego">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3a-hZ-lMP">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y3a-hZ-lMP" secondAttribute="trailing" constant="-20" id="358-0y-Zaw"/>
+                            <constraint firstItem="Y3a-hZ-lMP" firstAttribute="top" secondItem="BYc-5i-jB9" secondAttribute="bottom" id="I93-SF-ubc"/>
+                            <constraint firstItem="isv-a8-2oN" firstAttribute="top" secondItem="Y3a-hZ-lMP" secondAttribute="bottom" id="X55-BM-pM2"/>
+                            <constraint firstItem="Y3a-hZ-lMP" firstAttribute="leading" secondItem="m6L-lj-ego" secondAttribute="leadingMargin" constant="-20" id="zuE-z5-5Yo"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Highlights &amp; News" id="PmS-x1-rzP" userLabel="Highlights"/>
+                    <tabBarItem key="tabBarItem" title="Stories &amp; News" id="PmS-x1-rzP" userLabel="Highlights"/>
+                    <connections>
+                        <outlet property="storiesWebView" destination="Y3a-hZ-lMP" id="9Lb-5E-LF5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIH-H5-Pj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1253" y="-642"/>
         </scene>
-        <!--Current Roster-->
+        <!--Players-->
         <scene sceneID="Gnq-pe-yLr">
             <objects>
-                <collectionViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="currentContext" id="Lpk-KB-Mjt" customClass="PlayersViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="currentContext" id="Lpk-KB-Mjt" userLabel="Players" customClass="PlayersViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pSq-5q-boF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +86,7 @@
                             <outlet property="delegate" destination="Lpk-KB-Mjt" id="XiX-wS-HRm"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Current Roster" id="Uc0-cu-JoV"/>
+                    <tabBarItem key="tabBarItem" title="Roster" id="Uc0-cu-JoV"/>
                     <connections>
                         <outlet property="playersCollectionView" destination="pSq-5q-boF" id="odD-lV-Qd5"/>
                     </connections>
@@ -218,7 +233,7 @@
             </objects>
             <point key="canvasLocation" x="1938" y="7"/>
         </scene>
-        <!--Schedule & Results-->
+        <!--Schedule-->
         <scene sceneID="psH-IX-A8f">
             <objects>
                 <tableViewController id="fMT-30-usE" customClass="ScheduleTableViewController" customModule="USWNT" customModuleProvider="target" sceneMemberID="viewController">
@@ -276,7 +291,7 @@
                             <outlet property="delegate" destination="fMT-30-usE" id="r4y-ed-BU7"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Schedule &amp; Results" id="75r-ka-Hd9"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" id="75r-ka-Hd9"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAK-Ia-QTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
